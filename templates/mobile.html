@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>405捻线区车间温湿度</title>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script> -->
+    <script src="templates/js/jquery.min.js"></script>
+    <script src="templates/js/echarts.min.js"></script>
+    <script src="templates/js/echarts-gl.min.js"></script>
+    <style>
+        .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>405捻线区车间温湿度（并非真实数据仅用于演示）</h1>
+    </div>
+    <div class="wrap">
+        <div id="bar2" style="width:1000px; height:600px; margin: 5px;"></div>
+        <div id="bar3" style="width:1000px; height:600px; margin: 5px;"></div>
+    </div>
+    
+    <!-- <div id="bar" style="width:1000px; height:600px;"></div> -->
+    <script>
+        // $(
+        //     function () {
+        //         var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
+        //         $.ajax({
+        //             type: "GET",
+        //             url: "http://127.0.0.1:5000/barChart",
+        //             dataType: 'json',
+        //             success: function (result) {
+        //                 chart.setOption(result);
+        //             }
+        //         });
+        //     }
+        // )
+        $(
+            function () {
+                var chart2 = echarts.init(document.getElementById('bar2'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: window.location.origin +"/barChart2",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart2.setOption(result);
+                    }
+                });
+            }
+        )
+        $(
+            function () {
+                var chart3 = echarts.init(document.getElementById('bar3'), 'white', {renderer: 'canvas'});
+                $.ajax({
+                    type: "GET",
+                    url: window.location.origin + "/barChart3",
+                    dataType: 'json',
+                    success: function (result) {
+                        chart3.setOption(result);
+                    }
+                });
+            }
+        )
+    </script>
+</body>
+</html>
